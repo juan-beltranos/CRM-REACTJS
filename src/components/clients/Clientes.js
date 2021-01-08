@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import clienteAxios from '../../config/axios';
 import Cliente from './Cliente';
+import Spinner from '../layout/Spinner';
 
 import { Link } from 'react-router-dom';
 
@@ -19,6 +20,9 @@ const Clientes = () => {
       }
       consultarAPI();
    }, [clientes]);
+
+       //Spinner de carga
+       if(!clientes.length) return <Spinner/>
 
    return (
       <Fragment>
